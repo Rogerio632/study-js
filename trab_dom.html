@@ -1,0 +1,64 @@
+<html>
+
+<head>
+
+    <title></title>
+
+</head>
+
+<body>
+    <!-- Identar SHITF ALT F -->
+    <div id="app">
+
+        <input type="text" id="texto_digitado_pelo_usuario">
+
+        <button id="submit">Adicionar</button>
+
+    </div>
+
+    <script>
+
+        // var inputElement = document.getElementById('nome');
+        // ^Pega todos os elementos do doc que possuem tal ID
+
+        // var inputElement = document.getElementsByTagName('input');
+        //^Pega todos os elementos do doc que possuem essa tag
+
+        // var inputElement = document.getElementsByClassName('nome');      
+        //^Pega todos os elementos do doc que utilizam essa classe
+
+        // var inputElement = document.querySelector("body div#app ");
+        //Busca um elemento de acordo com sua localização
+
+        //    var inputElement = document.querySelector('input[name=nome]');
+        //Busca um elemento não só por sua localização, mas também por sua identificação
+
+        var text = document.querySelector("div#app input[id=texto_digitado_pelo_usuario]");
+
+
+        var btn = document.querySelector("button#submit");
+
+        if (text) {
+
+            btn.onclick = function () {
+
+                alert("Deu certo! Aqui está o que você digitou\n " + text.value);
+
+
+            }
+        } else {
+
+            btn.onclick = function () {
+
+                alert("Digite algo!");
+            }
+
+        }
+        // console.log(inputElement);
+
+    </script>
+
+
+</body>
+
+</html>

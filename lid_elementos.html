@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+    <title></title>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <input type="text" id="nome_cliente">
+
+        <div class="box">
+
+
+
+
+        </div>
+
+    </div>
+
+    <script>
+
+        //v aqui você cria o elemento desejado, no caso, uma tag <a>
+        var linkElement = document.createElement('a');
+        // var linkElement = document.createElement('a');
+
+        //v aqui setamos um atributo ao elemento <a> criado, adicionando o href com seu valor.
+        linkElement.setAttribute('href', 'https://app.gruponobre.com');
+        linkElement.setAttribute('title', 'Clicando aqui, você entrará no PLASA');
+
+        //v aqui criamos um texto que servirá como um "nó" para auxiliar na criação de um elemento DOM.
+        var textElement = document.createTextNode(`Acessar app do Plasa`);
+
+        //v pegamos no primeiro elemento, como pai, e unimos à um segundo, como filho.
+        linkElement.appendChild(textElement);
+
+        //v selecionamos uma parte específica do conteúdo html, que seria a div com id app
+        var containerElement = document.querySelector("div#app");
+
+        //Colocamos dentro do elemento pai(div#app), um elemento filho(<a>)
+        containerElement.appendChild(linkElement);
+
+        //faço a busca pela input que possui id nome_cliente dentro da div com id app
+        var InputElement = document.querySelector("#nome_cliente");
+
+        //utilizando o elemento pai, removo a input que possui o id identificado acima.
+        containerElement.removeChild(InputElement);
+
+        var boxElement = document.querySelector('div#app  .box');
+
+        boxElement.style.width = 100;
+        boxElement.style.height = 100;
+        boxElement.style.backgroundColor = '#13beff';
+
+        
+
+    </script>
+
+
+</body>
+
+</html>

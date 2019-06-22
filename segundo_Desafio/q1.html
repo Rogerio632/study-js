@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+
+    <!-- Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado
+vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve
+aparecer na tela. -->
+
+    <div id="app">
+
+
+
+        <div class="box">
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        //conteúdo da div app
+        var containerElement = document.querySelector("div#app");
+
+        //seleciona a classe box
+        var boxElement = document.querySelector(".box");
+
+        containerElement.appendChild(boxElement);
+
+        //cria o botão e adiciona estilização
+        var btnElement = document.createElement("button");
+        btnElement.style.backgroundColor = "green";
+        btnElement.style.border = "solid";
+        btnElement.style.borderColor = "yellow";
+        btnElement.style.color = "white";
+
+        //cria um texto para o botão
+        var btnText = document.createTextNode("Shazam!");
+
+        //adiciona o texto dentro do botão
+        btnElement.appendChild(btnText);
+        
+        containerElement.appendChild(btnElement);
+
+        btnElement.onclick = function () {
+
+            var newBoxElement = document.createElement("div");
+
+            var newColor = getRandomColor();
+
+            newBoxElement.setAttribute("title", `Eu sou um quadrado de cor ${newColor}!`);
+            newBoxElement.onmouseover = function () { newBoxElement.style.backgroundColor = newColor; }
+            newBoxElement.onmouseout = function () { newBoxElement.style.backgroundColor = "red"; }
+            newBoxElement.onclick = function () { newBoxElement.style.backgroundColor = "green"; }
+
+
+            newBoxElement.style.width = 100;
+            newBoxElement.style.height = 100;
+            newBoxElement.style.margin = 4;
+            newBoxElement.style.backgroundColor = "red";
+            boxElement.appendChild(newBoxElement);
+
+        }
+
+        function getRandomColor(){
+
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+
+            for (var i = 0; i < 6; i++){
+
+                color += letters[Math.floor(Math.random() * 16)];
+
+            }
+                return color;
+
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

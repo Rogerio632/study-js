@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+
+    <div id="app">
+
+
+    </div>
+
+    <script>
+
+        var nomes = ["Diego", "Carlos", "Bruno", "Francis Leudo"];
+
+        var containerElement = document.querySelector("body div#app");
+
+        var createListElement = document.createElement("ul");
+
+        for (var i = 0; i < nomes.length; i++) {
+
+            var ListElement = document.createElement("li");
+
+            let text = document.createTextNode(nomes[i]);
+
+            ListElement.appendChild(text);
+
+            createListElement.appendChild(ListElement);
+
+        }
+
+        containerElement.appendChild(createListElement);
+
+
+
+
+    </script>
+
+</body>
+
+</html>

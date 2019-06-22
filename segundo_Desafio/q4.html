@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+
+    <!-- iniciar e concluir amanhã -->
+    <!-- comecemos! -->
+
+    <div id="app">
+
+
+    </div>
+
+    <script>
+
+        var cidades = ['Fortaleza', 'Manaus', 'São Paulo', 'Porto Alegre', 'Araçoiaba da Serra'];
+
+        var containerElement = document.querySelector("body div#app");
+
+        var ulElement = document.createElement("ul");
+
+        var inputElement = document.createElement("input");
+        inputElement.setAttribute('type', 'text');
+        inputElement.setAttribute('id', 'nome');
+        inputElement.setAttribute('placeholder', 'No que está pensando?');
+
+        var buttonElement = document.createElement("button");
+        buttonElement.setAttribute('onclick', 'adicionar()');
+        buttonElement.setAttribute('type', 'submit');
+       
+
+        var buttonText = document.createTextNode('Adicionar');
+
+        buttonElement.appendChild(buttonText);
+
+        containerElement.appendChild(inputElement);
+        containerElement.appendChild(buttonElement);
+
+
+        for (let x = 0; x < cidades.length; x++) {
+
+            var liElement = document.createElement("li");
+
+            var liText = document.createTextNode(cidades[x]);
+
+            liElement.appendChild(liText);
+
+            ulElement.appendChild(liElement);
+        }
+
+        containerElement.appendChild(ulElement);
+
+       
+
+
+
+
+        function adicionar() {
+
+            var resultInputElement = document.querySelector("input[id=nome]").value;
+
+            if (resultInputElement == null || resultInputElement == "") {
+
+                console.log("erro");
+
+            } else {
+
+                console.log("certo");
+
+                console.log(resultInputElement);
+
+                var newLiElement = document.createElement('li');
+                var textToLi = document.createTextNode(resultInputElement);
+                newLiElement.appendChild(textToLi);
+
+                ulElement.appendChild(newLiElement);
+                containerElement.appendChild(ulElement);
+
+                clearInput();
+                
+            }
+            
+
+        }
+
+        function clearInput() {
+
+            var resultInputElement = document.querySelector("input[id=nome]").value = null;
+
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
