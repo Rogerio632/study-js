@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+
+
+    <div id="content">
+
+
+    </div>
+
+
+    <script>
+
+        var endereco = {
+
+            rua: 'Rua Antônio Pereira',
+            numero: '256',
+            bairro: "Planalto Ayrton Senna",
+            cidade: "Fortaleza",
+            uf: "Ceará"
+
+        };
+
+        var contentElement = document.querySelector("body div#content");
+
+        var h2Element = document.createElement("h2");
+            h2Element.style.color = "green";
+
+            h2Element.onclick = function(){ h2Element.style.color = "blue"; }
+            h2Element.ondblclick = function(){ h2Element.innerHTML = "Estás muerto!"; h2Element.style.color = "black"; }
+            h2Element.onmouseover = function(){ h2Element.style.color = "red"; }
+            h2Element.onmouseout = function(){ h2Element.style.color = "orange"; }
+
+        var addressText = document.createTextNode(`O usuário mora em ${endereco.cidade} / ${endereco.uf},
+         no bairro ${endereco.bairro}, na rua \"${endereco.rua}"\ com nº ${endereco.numero} `);
+
+        h2Element.appendChild(addressText);
+
+        contentElement.appendChild(h2Element);
+
+
+
+
+    </script>
+
+</body>
+
+</html>

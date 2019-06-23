@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+
+    <div id="content">
+
+    </div>
+
+
+    <script>
+
+        // seleciona a div de id content, para inserir suas informações nela ( ͡° ͜ʖ ͡°)
+        var contentElement = document.querySelector("div#content");
+
+        // // Cria o formulário e seta o seu método como post
+        // var formElement = document.createElement("form");
+        // formElement.setAttribute("method", "POST");
+        // formElement.style.padding = 4;
+
+
+        // Cria a input que receberá o valor de X
+        var xInputElement = document.createElement("input");
+        xInputElement.setAttribute("type", "number");
+        xInputElement.setAttribute("id", "x");
+        var xTextElement = document.createTextNode("Valor de X: ");
+        xInputElement.appendChild(xTextElement);
+
+        // Cria a input que receberá o valor de Y
+        var yInputElement = document.createElement("input");
+        yInputElement.setAttribute("type", "number");
+        yInputElement.setAttribute("id", "y");
+        var yTextElement = document.createTextNode("Valor de Y: ");
+        yInputElement.appendChild(yTextElement);
+
+        // // Impõe a herança de X e Y no form
+        // formElement.appendChild(xInputElement);
+        // formElement.appendChild(yInputElement);
+
+        var buttonElement = document.createElement("button");
+        buttonElement.setAttribute("id", "submit");
+
+        var btnText = document.createTextNode("Calcular");
+        buttonElement.appendChild(btnText);
+
+        buttonElement.onclick = function () { pares(xInputElement.value, yInputElement.value) }
+
+
+        // formElement.appendChild(buttonElement);
+
+        contentElement.appendChild(xInputElement);
+        contentElement.appendChild(yInputElement);
+        contentElement.appendChild(buttonElement);
+
+
+
+
+
+        function pares(x, y) {
+
+            var ulElement = document.createElement("ul");
+
+            if (isNaN(x) || isNaN(y)) {
+
+                console.log("Tem que ser número, viu, colega!");
+
+            } else if (x == "" || y == "") {
+
+                console.log("Tem bagulho errado na biqueira, tem número faltando!!!");
+
+            } else {
+
+                console.log("De acordo com meus informantes, tudo parece tranquilo!");
+
+                if (x > y) {
+                    for (; x >= y; y++) {
+                        if (y % 2 == 0) {
+
+                            let liElement = document.createElement("li");
+
+                            let textToX = document.createTextNode(`${y} \n`);
+
+                            liElement.appendChild(textToX);
+                            ulElement.appendChild(liElement);
+
+                        }
+                    }
+                } else if (y > x) {
+                    for (; y >= x; x++) {
+                        if (x % 2 == 0) {
+
+                            let liElement = document.createElement("li");
+
+                            let textToY = document.createTextNode(`${x} \n`);
+                            liElement.appendChild(textToY);
+                            ulElement.appendChild(liElement);
+
+                        }
+
+                    }
+                }
+                contentElement.appendChild(ulElement);
+            }
+
+            xInputElement.value = null;
+            yInputElement.value = null;
+            ulElement.value = null;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
