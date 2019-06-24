@@ -6,8 +6,8 @@ var buttonElement = document.querySelector("#app button");
 //aqui fazemos a busca dos valores gravados no localstorage
 //usando o getItem e identificando pelo nome da key
 //no caso, estamos utilizando 'list_todos'
-//o JSON.parse serve para transformar o array em string,
-//para string em array
+//o JSON.parse serve para transformar 
+//texto em objeto javascript
 // o "|| []" serve como alternativa caso não seja encontrado
 //nenhum valor no localstorage
 var todos = JSON.parse(localStorage.getItem('list_todos')) || [];
@@ -101,4 +101,13 @@ function saveToStorage(){
 
 //ao clicar no botão de adc, o addTodos é acionado
 buttonElement.onclick = addTodos;
+buttonElement.onkeyPress = function(event){
 
+    if(event.which == 13 || event.keyCode == 13){
+
+        addTodos();
+    } else{
+        return false;
+    }
+
+}
