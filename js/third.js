@@ -1,29 +1,36 @@
-function checkAge(idade){
+function checkAge(idade) {
 
-    return new Promise(function(resolve, reject){
+    return new Promise(function (resolve, reject) {
 
-    if(idade >= 18 ){
 
-    resolve(`O usuário possui ${idade} anos e já é adulto!`);
+        if (idade >= 18) {
 
-    } else if(idade < 18 && idade > 0){
+            resolve(`O usuário possui ${idade} anos e já é adulto!`);
 
-    reject(`O usuário possui ${idade} anos e num pode acessar a próxima página, não. ( ͡° ͜ʖ ͡°)`);
+        } else if (idade < 18 && idade > 0) {
 
-    }
+            reject(`O usuário possui ${idade} anos e num pode acessar a próxima página, não. ( ͡° ͜ʖ ͡°)`);
 
+        }
 
     });
-    
+
 }
 
-checkAge(18)
-.then(function(response){
 
-console.log(response);
+function promiseCheckAge() {
 
-}).catch(function(error){
+    checkAge(18)
+        .then(function (response) {
 
-    console.log(error);
+            console.log(response);
 
-});
+        }).catch(function (error) {
+
+            console.warn(error);
+
+        });
+
+}
+
+setTimeout(promiseCheckAge, 2000);
