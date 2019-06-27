@@ -1,2 +1,2 @@
 # study-js
-Simple Repository to store my already done exercises about javascript. Questions and lessons from Rockeatseat Starter.  
+Simple Repository to store examples to learn and practice javascript. Exercises and lessons from Rocketseat Starter.
