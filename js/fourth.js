@@ -18,10 +18,14 @@ containerElement.appendChild(ulElement);
 
 function showGithUser() {
 
+    ulElement.innerHTML = "";
+
     var github_user = inputElement.value;
 
-    axios.get(`https://api.github.com/users/${github_user}/repos`)
+    axios.get(`https://api.github.com/users/${github_user}`)
         .then(response => {
+
+            console.log(response.data);
 
             for (let result of Object.keys(response.data)) {
 
