@@ -19,14 +19,17 @@ containerElement.appendChild(ulElement);
 function showGithUser() {
 
     ulElement.innerHTML = "";
+    ulElement.innerHTML = "Só um instante!";
 
     var github_user = inputElement.value;
 
     axios.get(`https://api.github.com/users/${github_user}/repos`)
-        .then(response => {
 
-            console.log(response.data);
+    .then(response => {
+       
+            ulElement.innerHTML = "";
 
+       
             for (let number = 0; number < response.data.length; number++) {
 
                 var liElement = document.createElement("li");
@@ -35,7 +38,7 @@ function showGithUser() {
                 aElement.style.textDecoration = "none";
                 aElement.style.color = "#000000";
                 aElement.style.cursor = "pointer";
-                
+
                 aText = document.createTextNode(`${response.data[number].name}`);
 
                 aElement.appendChild(aText);
@@ -44,13 +47,14 @@ function showGithUser() {
                 ulElement.appendChild(liElement);
 
             }
-
+            
         }).catch(error => {
 
-            console.warn(error);
+            ulElement.innerHTML = "404! Usuário não encontrado... D:";
+
 
         });
+        
 
-
+            
 }
-
